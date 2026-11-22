@@ -1,0 +1,1 @@
+always write very simple, elegant and clean code.
