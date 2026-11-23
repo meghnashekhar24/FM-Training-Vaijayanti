@@ -1,0 +1,1360 @@
+{
+  "generated": "2026-11-23T07:08:12+00:00",
+  "rows_in": 29867531,
+  "events_out": 12918420,
+  "customers": 8878,
+  "profiles_out": 10000,
+  "events_per_customer": {
+    "min": 2.0,
+    "p50": 1604.0,
+    "p90": 2253.0,
+    "p99": 2698.2299999999996,
+    "max": 3252.0,
+    "mean": 1455.1
+  },
+  "by_source": {
+    "app": 8813462,
+    "transaction": 4100074,
+    "communication": 4884
+  },
+  "vocabulary_estimate": 100528,
+  "reconciliation": {
+    "collections_case": {
+      "rows_in": 610,
+      "events": 290,
+      "dropped": {
+        "timestamp after the run clock": 320
+      },
+      "unexplained": 0
+    },
+    "collections_case_snapshot": {
+      "rows_in": 4394,
+      "events": 2101,
+      "dropped": {
+        "timestamp after the run clock": 2293
+      },
+      "unexplained": 0
+    },
+    "customer_snapshot": {
+      "rows_in": 57762,
+      "events": 24964,
+      "dropped": {
+        "timestamp after the run clock": 31799,
+        "unchanged since the previous snapshot": 999
+      },
+      "unexplained": 0
+    },
+    "fraud_case": {
+      "rows_in": 2171,
+      "events": 817,
+      "dropped": {
+        "timestamp after the run clock": 1354
+      },
+      "unexplained": 0
+    },
+    "fraud_case_snapshot": {
+      "rows_in": 4606,
+      "events": 1676,
+      "dropped": {
+        "timestamp after the run clock": 2930
+      },
+      "unexplained": 0
+    },
+    "interaction_event": {
+      "rows_in": 17413914,
+      "events": 8246544,
+      "dropped": {
+        "timestamp after the run clock": 9167370
+      },
+      "unexplained": 0
+    },
+    "product_event": {
+      "rows_in": 360976,
+      "events": 132178,
+      "dropped": {
+        "timestamp after the run clock": 228798
+      },
+      "unexplained": 0
+    },
+    "product_snapshot": {
+      "rows_in": 285532,
+      "events": 114612,
+      "dropped": {
+        "timestamp after the run clock": 165825,
+        "unchanged since the previous snapshot": 5095
+      },
+      "unexplained": 0
+    },
+    "session": {
+      "rows_in": 847108,
+      "events": 409776,
+      "dropped": {
+        "timestamp after the run clock": 437332
+      },
+      "unexplained": 0
+    },
+    "txn_event": {
+      "rows_in": 10890458,
+      "events": 3985462,
+      "dropped": {
+        "timestamp after the run clock": 6904996
+      },
+      "unexplained": 0
+    },
+    "customer_profile": {
+      "rows_in": 10000,
+      "events": 0,
+      "profile_rows": 10000,
+      "dropped": {},
+      "unexplained": 0
+    }
+  },
+  "resources": {
+    "ram_cap_gb": 4.22,
+    "gpu_cap_gb": 0.0,
+    "peak_rss_gb": 2.67,
+    "partitions": 106,
+    "ranges": 22,
+    "gpu_steps": 0,
+    "cpu_steps": 44,
+    "ranges_over_cap": 0,
+    "gpu_off_for": null,
+    "seconds": 176.3
+  },
+  "fields": [
+    {
+      "key": "amount",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "amt_txn",
+      "source": "app",
+      "events": 147866,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "balance_before",
+      "source": "transaction",
+      "events": 2582165,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "current_balance",
+      "source": "transaction",
+      "events": 99072,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "fx_rate",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "minimum_due",
+      "source": "transaction",
+      "events": 64231,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "total_aum",
+      "source": "app",
+      "events": 18681,
+      "distinct": 10001,
+      "distinct_capped": true,
+      "treatment": "text, BPE",
+      "advice": "drop - this looks like an identifier, not behaviour"
+    },
+    {
+      "key": "open_date",
+      "source": "transaction",
+      "events": 26926,
+      "distinct": 6118,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "interest_rate_pct",
+      "source": "transaction",
+      "events": 7548,
+      "distinct": 5358,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "instalment_amount",
+      "source": "transaction",
+      "events": 1866,
+      "distinct": 1852,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "principal_amount",
+      "source": "transaction",
+      "events": 1866,
+      "distinct": 1767,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "sanctioned_amount",
+      "source": "transaction",
+      "events": 1866,
+      "distinct": 1767,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "overdue_amount",
+      "source": "transaction",
+      "events": 29087,
+      "distinct": 1715,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "overdue_principal_amt",
+      "source": "transaction",
+      "events": 29087,
+      "distinct": 1691,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "credit_score_internal",
+      "source": "app",
+      "events": 22559,
+      "distinct": 1532,
+      "distinct_capped": false,
+      "treatment": "text, BPE",
+      "advice": "consider dropping or bucketing"
+    },
+    {
+      "key": "total_exposure_amount",
+      "source": "communication",
+      "events": 821,
+      "distinct": 522,
+      "distinct_capped": false,
+      "treatment": "categorical, 522 ids",
+      "advice": ""
+    },
+    {
+      "key": "credit_score_bureau_date",
+      "source": "app",
+      "events": 22701,
+      "distinct": 505,
+      "distinct_capped": false,
+      "treatment": "categorical, 505 ids",
+      "advice": ""
+    },
+    {
+      "key": "credit_score_bureau",
+      "source": "app",
+      "events": 22293,
+      "distinct": 468,
+      "distinct_capped": false,
+      "treatment": "categorical, 468 ids",
+      "advice": ""
+    },
+    {
+      "key": "credit_score_internal_date",
+      "source": "app",
+      "events": 22697,
+      "distinct": 462,
+      "distinct_capped": false,
+      "treatment": "categorical, 462 ids",
+      "advice": ""
+    },
+    {
+      "key": "last_due_date",
+      "source": "transaction",
+      "events": 74441,
+      "distinct": 423,
+      "distinct_capped": false,
+      "treatment": "categorical, 423 ids",
+      "advice": ""
+    },
+    {
+      "key": "event_timestamp",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 419,
+      "distinct_capped": false,
+      "treatment": "categorical, 419 ids",
+      "advice": ""
+    },
+    {
+      "key": "posted_timestamp",
+      "source": "transaction",
+      "events": 2582165,
+      "distinct": 419,
+      "distinct_capped": false,
+      "treatment": "categorical, 419 ids",
+      "advice": ""
+    },
+    {
+      "key": "session_end",
+      "source": "app",
+      "events": 409776,
+      "distinct": 419,
+      "distinct_capped": false,
+      "treatment": "categorical, 419 ids",
+      "advice": ""
+    },
+    {
+      "key": "amount_collected_to_date",
+      "source": "communication",
+      "events": 2101,
+      "distinct": 393,
+      "distinct_capped": false,
+      "treatment": "categorical, 393 ids",
+      "advice": ""
+    },
+    {
+      "key": "last_statement_date",
+      "source": "transaction",
+      "events": 74441,
+      "distinct": 386,
+      "distinct_capped": false,
+      "treatment": "categorical, 386 ids",
+      "advice": ""
+    },
+    {
+      "key": "close_date",
+      "source": "transaction",
+      "events": 1268,
+      "distinct": 361,
+      "distinct_capped": false,
+      "treatment": "categorical, 361 ids",
+      "advice": ""
+    },
+    {
+      "key": "action_timestamp",
+      "source": "communication",
+      "events": 1415,
+      "distinct": 358,
+      "distinct_capped": false,
+      "treatment": "categorical, 358 ids",
+      "advice": ""
+    },
+    {
+      "key": "delinquency_start_date",
+      "source": "transaction",
+      "events": 526,
+      "distinct": 322,
+      "distinct_capped": false,
+      "treatment": "categorical, 322 ids",
+      "advice": ""
+    },
+    {
+      "key": "settlement_timestamp",
+      "source": "transaction",
+      "events": 2582165,
+      "distinct": 301,
+      "distinct_capped": false,
+      "treatment": "categorical, 301 ids",
+      "advice": ""
+    },
+    {
+      "key": "outstanding_at_assignment",
+      "source": "communication",
+      "events": 290,
+      "distinct": 290,
+      "distinct_capped": false,
+      "treatment": "categorical, 290 ids",
+      "advice": ""
+    },
+    {
+      "key": "action_amount_collected",
+      "source": "communication",
+      "events": 233,
+      "distinct": 233,
+      "distinct_capped": false,
+      "treatment": "categorical, 233 ids",
+      "advice": ""
+    },
+    {
+      "key": "dpd_at_action",
+      "source": "communication",
+      "events": 2101,
+      "distinct": 223,
+      "distinct_capped": false,
+      "treatment": "categorical, 223 ids",
+      "advice": ""
+    },
+    {
+      "key": "approved_amount",
+      "source": "app",
+      "events": 487,
+      "distinct": 202,
+      "distinct_capped": false,
+      "treatment": "categorical, 202 ids",
+      "advice": ""
+    },
+    {
+      "key": "days_delinquent",
+      "source": "transaction",
+      "events": 29188,
+      "distinct": 197,
+      "distinct_capped": false,
+      "treatment": "categorical, 197 ids",
+      "advice": ""
+    },
+    {
+      "key": "credit_limit",
+      "source": "transaction",
+      "events": 9329,
+      "distinct": 187,
+      "distinct_capped": false,
+      "treatment": "categorical, 187 ids",
+      "advice": ""
+    },
+    {
+      "key": "new_limit",
+      "source": "app",
+      "events": 3647,
+      "distinct": 187,
+      "distinct_capped": false,
+      "treatment": "categorical, 187 ids",
+      "advice": ""
+    },
+    {
+      "key": "case_open_timestamp",
+      "source": "communication",
+      "events": 183,
+      "distinct": 150,
+      "distinct_capped": false,
+      "treatment": "categorical, 150 ids",
+      "advice": ""
+    },
+    {
+      "key": "old_limit",
+      "source": "app",
+      "events": 3647,
+      "distinct": 145,
+      "distinct_capped": false,
+      "treatment": "categorical, 145 ids",
+      "advice": ""
+    },
+    {
+      "key": "disposition_timestamp",
+      "source": "communication",
+      "events": 171,
+      "distinct": 143,
+      "distinct_capped": false,
+      "treatment": "categorical, 143 ids",
+      "advice": ""
+    },
+    {
+      "key": "confirmed_loss_amount",
+      "source": "communication",
+      "events": 171,
+      "distinct": 113,
+      "distinct_capped": false,
+      "treatment": "categorical, 113 ids",
+      "advice": ""
+    },
+    {
+      "key": "promise_amount",
+      "source": "communication",
+      "events": 109,
+      "distinct": 109,
+      "distinct_capped": false,
+      "treatment": "categorical, 109 ids",
+      "advice": ""
+    },
+    {
+      "key": "promise_date",
+      "source": "communication",
+      "events": 109,
+      "distinct": 94,
+      "distinct_capped": false,
+      "treatment": "categorical, 94 ids",
+      "advice": ""
+    },
+    {
+      "key": "promise_made_timestamp",
+      "source": "communication",
+      "events": 109,
+      "distinct": 71,
+      "distinct_capped": false,
+      "treatment": "categorical, 71 ids",
+      "advice": ""
+    },
+    {
+      "key": "instalment_amount",
+      "source": "communication",
+      "events": 40,
+      "distinct": 40,
+      "distinct_capped": false,
+      "treatment": "categorical, 40 ids",
+      "advice": ""
+    },
+    {
+      "key": "total_arrangement_amount",
+      "source": "communication",
+      "events": 40,
+      "distinct": 40,
+      "distinct_capped": false,
+      "treatment": "categorical, 40 ids",
+      "advice": ""
+    },
+    {
+      "key": "arrangement_start_date",
+      "source": "communication",
+      "events": 40,
+      "distinct": 39,
+      "distinct_capped": false,
+      "treatment": "categorical, 39 ids",
+      "advice": ""
+    },
+    {
+      "key": "writeoff_amount",
+      "source": "communication",
+      "events": 32,
+      "distinct": 32,
+      "distinct_capped": false,
+      "treatment": "categorical, 32 ids",
+      "advice": ""
+    },
+    {
+      "key": "event_type",
+      "source": "app",
+      "events": 8246544,
+      "distinct": 30,
+      "distinct_capped": false,
+      "treatment": "categorical, 30 ids",
+      "advice": ""
+    },
+    {
+      "key": "category",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 20,
+      "distinct_capped": false,
+      "treatment": "categorical, 20 ids",
+      "advice": ""
+    },
+    {
+      "key": "number_of_instalments",
+      "source": "communication",
+      "events": 40,
+      "distinct": 17,
+      "distinct_capped": false,
+      "treatment": "categorical, 17 ids",
+      "advice": ""
+    },
+    {
+      "key": "instalments_missed_count",
+      "source": "transaction",
+      "events": 28079,
+      "distinct": 14,
+      "distinct_capped": false,
+      "treatment": "categorical, 14 ids",
+      "advice": ""
+    },
+    {
+      "key": "transaction_type",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 14,
+      "distinct_capped": false,
+      "treatment": "categorical, 14 ids",
+      "advice": ""
+    },
+    {
+      "key": "page_or_screen",
+      "source": "app",
+      "events": 8246544,
+      "distinct": 12,
+      "distinct_capped": false,
+      "treatment": "categorical, 12 ids",
+      "advice": ""
+    },
+    {
+      "key": "case_open_dpd",
+      "source": "communication",
+      "events": 290,
+      "distinct": 10,
+      "distinct_capped": false,
+      "treatment": "categorical, 10 ids",
+      "advice": ""
+    },
+    {
+      "key": "decline_category",
+      "source": "transaction",
+      "events": 93898,
+      "distinct": 10,
+      "distinct_capped": false,
+      "treatment": "categorical, 10 ids",
+      "advice": ""
+    },
+    {
+      "key": "alert_type",
+      "source": "communication",
+      "events": 817,
+      "distinct": 9,
+      "distinct_capped": false,
+      "treatment": "categorical, 9 ids",
+      "advice": ""
+    },
+    {
+      "key": "event_type",
+      "source": "app",
+      "events": 132178,
+      "distinct": 9,
+      "distinct_capped": false,
+      "treatment": "categorical, 9 ids",
+      "advice": ""
+    },
+    {
+      "key": "journey_name",
+      "source": "app",
+      "events": 8246544,
+      "distinct": 9,
+      "distinct_capped": false,
+      "treatment": "categorical, 9 ids",
+      "advice": ""
+    },
+    {
+      "key": "tenor_days",
+      "source": "transaction",
+      "events": 1866,
+      "distinct": 9,
+      "distinct_capped": false,
+      "treatment": "categorical, 9 ids",
+      "advice": ""
+    },
+    {
+      "key": "age_band",
+      "source": "app",
+      "events": 9006,
+      "distinct": 8,
+      "distinct_capped": false,
+      "treatment": "categorical, 8 ids",
+      "advice": ""
+    },
+    {
+      "key": "merchant_country",
+      "source": "transaction",
+      "events": 2587598,
+      "distinct": 8,
+      "distinct_capped": false,
+      "treatment": "categorical, 8 ids",
+      "advice": ""
+    },
+    {
+      "key": "recovery_amount",
+      "source": "communication",
+      "events": 8,
+      "distinct": 8,
+      "distinct_capped": false,
+      "treatment": "categorical, 8 ids",
+      "advice": ""
+    },
+    {
+      "key": "action_channel",
+      "source": "communication",
+      "events": 1415,
+      "distinct": 7,
+      "distinct_capped": false,
+      "treatment": "categorical, 7 ids",
+      "advice": ""
+    },
+    {
+      "key": "txn_channel",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 7,
+      "distinct_capped": false,
+      "treatment": "categorical, 7 ids",
+      "advice": ""
+    },
+    {
+      "key": "case_close_reason",
+      "source": "communication",
+      "events": 206,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "contact_outcome",
+      "source": "communication",
+      "events": 1415,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "currency",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "currency",
+      "source": "transaction",
+      "events": 26926,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "customer_country_code",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "error_code",
+      "source": "app",
+      "events": 99618,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "pos_entry_mode",
+      "source": "transaction",
+      "events": 981736,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "product_in_context",
+      "source": "app",
+      "events": 5393272,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "product_status",
+      "source": "transaction",
+      "events": 29816,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "product_type",
+      "source": "transaction",
+      "events": 26926,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "stage_name",
+      "source": "app",
+      "events": 7131,
+      "distinct": 6,
+      "distinct_capped": false,
+      "treatment": "categorical, 6 ids",
+      "advice": ""
+    },
+    {
+      "key": "browser",
+      "source": "app",
+      "events": 121929,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "detection_source",
+      "source": "communication",
+      "events": 817,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "fraud_type",
+      "source": "communication",
+      "events": 183,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "login_failure_reason",
+      "source": "app",
+      "events": 20186,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "os",
+      "source": "app",
+      "events": 387851,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "product_code",
+      "source": "app",
+      "events": 7131,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "product_tier",
+      "source": "transaction",
+      "events": 26926,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "risk_profile_code",
+      "source": "app",
+      "events": 5059,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "session_channel",
+      "source": "app",
+      "events": 409776,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "strategy_segment_code",
+      "source": "communication",
+      "events": 290,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "wealth_band",
+      "source": "app",
+      "events": 9039,
+      "distinct": 5,
+      "distinct_capped": false,
+      "treatment": "categorical, 5 ids",
+      "advice": ""
+    },
+    {
+      "key": "alert_status",
+      "source": "communication",
+      "events": 1676,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "app_version",
+      "source": "app",
+      "events": 265922,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "application_channel",
+      "source": "app",
+      "events": 7131,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "arrangement_type",
+      "source": "communication",
+      "events": 40,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "card_network",
+      "source": "transaction",
+      "events": 12598,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "case_disposition",
+      "source": "communication",
+      "events": 171,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "collection_stage",
+      "source": "communication",
+      "events": 2101,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "collections_action_type",
+      "source": "communication",
+      "events": 1415,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "collections_outcome",
+      "source": "communication",
+      "events": 1415,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "counterparty_type",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "credit_score_internal_version",
+      "source": "app",
+      "events": 7720,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "device_type",
+      "source": "app",
+      "events": 387851,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "initiated_by",
+      "source": "app",
+      "events": 132178,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "last_payment_status",
+      "source": "transaction",
+      "events": 28692,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "login_method",
+      "source": "app",
+      "events": 409776,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "record_type",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "recovery_source",
+      "source": "communication",
+      "events": 8,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "threeds_outcome",
+      "source": "transaction",
+      "events": 173604,
+      "distinct": 4,
+      "distinct_capped": false,
+      "treatment": "categorical, 4 ids",
+      "advice": ""
+    },
+    {
+      "key": "alert_score_model_version",
+      "source": "communication",
+      "events": 705,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "arrangement_status",
+      "source": "communication",
+      "events": 179,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "credit_bureau_source",
+      "source": "app",
+      "events": 7720,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "cvv_result",
+      "source": "transaction",
+      "events": 330326,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "final_outcome",
+      "source": "app",
+      "events": 2094,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "initiator_type",
+      "source": "transaction",
+      "events": 2582165,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "instalment_frequency",
+      "source": "transaction",
+      "events": 1866,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "login_status",
+      "source": "app",
+      "events": 409776,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "promise_status",
+      "source": "communication",
+      "events": 468,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "victim_or_perpetrator",
+      "source": "communication",
+      "events": 484,
+      "distinct": 3,
+      "distinct_capped": false,
+      "treatment": "categorical, 3 ids",
+      "advice": ""
+    },
+    {
+      "key": "case_status",
+      "source": "communication",
+      "events": 821,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "case_status",
+      "source": "communication",
+      "events": 2101,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "debit_credit_indicator",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "decision",
+      "source": "transaction",
+      "events": 1403297,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "dpd_reset_flag",
+      "source": "app",
+      "events": 73,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "has_checking",
+      "source": "app",
+      "events": 9073,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "has_consumer_loan",
+      "source": "app",
+      "events": 9480,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "has_credit",
+      "source": "app",
+      "events": 9305,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "has_debit",
+      "source": "app",
+      "events": 9582,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "has_mortgage",
+      "source": "app",
+      "events": 8894,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "has_wallet",
+      "source": "app",
+      "events": 9271,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "is_customer_caused",
+      "source": "transaction",
+      "events": 93898,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "is_fraud_flagged",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "is_recurring",
+      "source": "transaction",
+      "events": 3985462,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "is_trusted_flag",
+      "source": "app",
+      "events": 409776,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "journey_completed_flag",
+      "source": "app",
+      "events": 526148,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "payment_funding_product",
+      "source": "transaction",
+      "events": 152237,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "pin_verified_flag",
+      "source": "transaction",
+      "events": 699048,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "posting_status",
+      "source": "transaction",
+      "events": 2582165,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "premature_withdrawal_flag",
+      "source": "transaction",
+      "events": 27047,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "threeds_flag",
+      "source": "transaction",
+      "events": 330326,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    },
+    {
+      "key": "y_n_eligible_mortgage",
+      "source": "app",
+      "events": 9248,
+      "distinct": 2,
+      "distinct_capped": false,
+      "treatment": "categorical, 2 ids",
+      "advice": ""
+    }
+  ],
+  "warnings": [
+    "amount has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "amt_txn has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "balance_before has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "current_balance has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "fx_rate has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "minimum_due has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "total_aum has over 10,000 distinct values - drop - this looks like an identifier, not behaviour",
+    "94 fields appear on under 1% of events"
+  ]
+}
