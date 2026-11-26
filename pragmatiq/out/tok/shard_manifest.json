@@ -1,0 +1,17 @@
+{
+  "bands": [
+    8,
+    32,
+    128,
+    512,
+    2048,
+    8192,
+    1000000
+  ],
+  "max_events_per_user": 6500,
+  "n_shards": 7,
+  "n_users": 8879,
+  "tokenizer_hash": "5b113929eb1a3ad747405938f78bd41443afb19f3c3e65bdb433df8fa3e91fed",
+  "total_events": 13023731,
+  "total_tokens": 120948035
+}
